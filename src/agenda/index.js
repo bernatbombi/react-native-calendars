@@ -407,9 +407,7 @@ export default class AgendaView extends Component {
           {knob}
         </Animated.View>
         <Animated.View style={weekdaysStyle}>
-          {weekDaysNames.map((day) => (
-            <Text allowFontScaling={false} key={day} style={this.styles.weekday} numberOfLines={1}>{day}</Text>
-          ))}
+          {this.renderDays(weekDaysNames)}
         </Animated.View>
         <Animated.ScrollView
           ref={c => this.scrollPad = c}
@@ -431,5 +429,16 @@ export default class AgendaView extends Component {
         </Animated.ScrollView>
       </View>
     );
+  }
+  renderDays(weekDaysNames) {
+      let i = 0
+      let items = []
+      weekDaysNames.map((day) => {
+          items.push(
+              <Text allowFontScaling={false} key={i} style={this.styles.weekday} numberOfLines={1}>{day}</Text>
+          )
+          i++
+      })
+      return items
   }
 }

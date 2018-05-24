@@ -60,10 +60,12 @@ class ReservationListItem extends Component {
       content = this.props.renderEmptyDate(date);
     }
     return (
-      <View style={this.styles.container}>
-        {this.renderDate(date, reservation)}
-        <View style={{flex:1}}>
-          {content}
+      <View style={{flexDirection: 'column'}}>
+        <View>
+            {this.renderDate(date, reservation)}
+        </View>
+        <View>
+            {content}
         </View>
       </View>
     );
